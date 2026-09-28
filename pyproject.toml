@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tap14"
+version = "0.1.0"
+description = "A streaming parser for TAP 14, including nested subtests"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "__AUTHOR__" }]
+keywords = ["tap", "test-anything-protocol", "testing", "parser", "junit"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "mypy>=1.10",
+]
+yaml = [
+  "PyYAML>=6.0",
+]
+
+[project.scripts]
+tap14 = "tap14.cli:main"
+
+[project.urls]
+Repository = "https://github.com/__GH_OWNER__/tap14"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tap14"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+strict = true
